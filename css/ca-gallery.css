@@ -84,7 +84,7 @@ body {
 .offcanvas-aside {
     position: fixed;
     height: 100%;
-    background: red;
+    background: rgb(153, 14, 14);
     width: 80vw;
     right: -80vw;
     z-index: 10;
@@ -96,6 +96,9 @@ body {
 }
 .offcanvas-aside img {
     border-radius: 50%;
+}
+.offcanvas-aside button {
+    cursor: pointer;
 }
 .offcanvas-aside p {
     text-align: center;

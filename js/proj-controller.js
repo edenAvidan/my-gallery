@@ -1,12 +1,21 @@
 'use strict'
 
 $(initPage);
+$(addEventListeners);
 
 function initPage() {
     renderProjs();
-    $('.portfolio-item').click(onProjClick);
 }
 
+function addEventListeners() {
+    $('.portfolio-item').click(onProjClick);
+    $('.offcanvas-btn').click(openCanvas);
+    $('.contact').click(() => {
+        openCanvas();
+        return false;
+    });
+    $('.offcanvas-aside button').click(onContactSubmit);
+}
 
 function renderProjs() {
     const projs = getProjs();
@@ -33,7 +42,6 @@ function renderProjs() {
 }
 
 function onProjClick() {
-
     const projId = $(this).data('proj-id');
     const proj = getProjById(projId);
     const $elProjDetails = $('.proj-details');
@@ -46,4 +54,17 @@ function onProjClick() {
     $elProjDetails.find('.proj-desc').text(proj.desc);
     $elProjDetails.find('.publish-date').text(proj.publishedAt);
     $elProjDetails.find('.go-to-proj').attr('href', `projs/${proj.name}/index.html`);
+}
+
+function onContactSubmit() {
+    const userEmail = $('.offcanvas-aside input[type=email]').val();
+    const userSubject = $('.offcanvas-aside input[type=text]').val();
+    const userMessage = $('textarea').val().replace(/\n/g, '%0D%0A');
+
+    if (!userEmail || !userSubject || !userMessage) return;
+
+    const url = `https://mail.google.com/mail/?view=cm&fs=1&to=edenaavidan@gmail.com \
+                &su=${userSubject}&body=${userMessage}%0D%0A%0D%0A${userEmail}`;
+
+    window.open(url);
 }
