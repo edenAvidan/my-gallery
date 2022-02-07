@@ -1,4 +1,4 @@
-function openCanvas(){
-    document.querySelector('.offcanvas-btn').classList.toggle('offcanvas-btn-open');
-    document.querySelector('.offcanvas-aside').classList.toggle('offcanvas-aside-open');    
+function openCanvas() {
+    $('.offcanvas-btn').toggleClass('offcanvas-btn-open');
+    $('.offcanvas-aside').toggleClass('offcanvas-aside-open');
 }
