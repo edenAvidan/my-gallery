@@ -43,5 +43,5 @@ function onProjClick() {
     $elProjDetails.find('img').attr('src', `img/portfolio/${proj.id}.png`);
     $elProjDetails.find('.proj-desc').text(proj.desc);
     $elProjDetails.find('.publish-date').text(proj.publishedAt);
-
+    $elProjDetails.find('.go-to-proj').attr('href', `projs/${proj.name}/index.html`);
 }
