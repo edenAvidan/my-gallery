@@ -1,0 +1,41 @@
+
+.num-button {
+    border-radius: 20px;
+    height: 19px;
+    line-height: 19px;
+    color: #000000;
+    font-family: Arial;
+    width: 36px;
+    font-size: 40px;
+    font-weight: 300;
+    margin-left: 3px;
+    padding: 47px;
+    background-color: #377ccc;
+    border: solid #991064 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+ }
+ 
+ .num-button:hover {
+    border: solid #991064 1px;
+    background: #C3D542;
+    background-image: -webkit-linear-gradient(top, #C3D542, #3D94F6);
+    background-image: -moz-linear-gradient(top, #C3D542, #3D94F6);
+    background-image: -ms-linear-gradient(top, #C3D542, #3D94F6);
+    background-image: -o-linear-gradient(top, #C3D542, #3D94F6);
+    background-image: -webkit-gradient(to bottom, #C3D542, #3D94F6);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+ }
+
+ .no-hover {
+     pointer-events: none;
+ }
+
+.green {
+    background-color: green;
+}

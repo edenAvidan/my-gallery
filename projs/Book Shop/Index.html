@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Book-Shop</title>
+</head>
+
+<body onload="onInit()">
+    <div class="book-shop-container">
+        <h1>Book Shop</h1>
+
+        <form onsubmit="onAddBook(); return false" class="add-book">
+            <input type="text" name="name" placeholder="Book Title" required>
+            <input type="number" name="price" placeholder="Book Price" min="0" required>
+            <button type="submit">Add Book</button>
+        </form>
+
+        <table class="books" border="1">
+            <thead>
+                <th onclick="onSetSortBy('ID')">Id</th>
+                <th onclick="onSetSortBy('NAME')">Title</th>
+                <th onclick="onSetSortBy('PRICE')">Price</th>
+                <th onclick="onSetSortBy('RATEING')">Rating</th>
+                <th colspan="3">Actions</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div class="read-modal closed">
+            <h2></h2>
+            <img>
+            <h3>Id: <span class="book-id"></span></h3>
+            <h3>Price: <span class="book-price"></span></h3>
+
+            <div class="rating">
+                <button class="minus">-</button>
+                <span></span>
+                <button class="plus">+</button>
+            </div>
+
+            <button onclick="onCloseModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="js/services/util.js"></script>
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/book.service.js"></script>
+    <script src="js/book.controller.js"></script>
+</body>
+
+</html>
