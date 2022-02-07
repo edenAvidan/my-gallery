@@ -9,9 +9,9 @@ function initPage() {
 
 function addEventListeners() {
     $('.portfolio-item').click(onProjClick);
-    $('.offcanvas-btn').click(openCanvas);
+    $('.offcanvas-btn').click(toggleCanvesState);
     $('.contact').click(() => {
-        openCanvas();
+        toggleCanvesState();
         return false;
     });
     $('.offcanvas-aside button').click(onContactSubmit);
@@ -67,4 +67,5 @@ function onContactSubmit() {
                 &su=${userSubject}&body=${userMessage}%0D%0A%0D%0A${userEmail}`;
 
     window.open(url);
+    toggleCanvesState(); // closing canves after sending link
 }
