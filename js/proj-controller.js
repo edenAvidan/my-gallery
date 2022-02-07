@@ -37,8 +37,10 @@ function onProjClick() {
     const projId = $(this).data('proj-id');
     const proj = getProjById(projId);
     const $elProjDetails = $('.proj-details');
+    const projLabels = proj.labels.map(label => `<span class="badge bg-secondary p-2 mx-2">${label}</span>`);
 
     $elProjDetails.find('h2').text(proj.name);
+    $elProjDetails.find('.labels').html(projLabels)
     $elProjDetails.find('.item-intro').text(proj.title);
     $elProjDetails.find('img').attr('src', `img/portfolio/${proj.id}.png`);
     $elProjDetails.find('.proj-desc').text(proj.desc);
