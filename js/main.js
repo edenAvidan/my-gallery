@@ -3,8 +3,8 @@
 $(initPage);
 
 function initPage() {
-    console.log('init');
     renderProjs();
+    $('.portfolio-item').click(onProjClick);
 }
 
 
@@ -13,7 +13,7 @@ function renderProjs() {
 
     const strHtml = projs.map(proj => {
         return `
-        <div class="col-md-4 col-sm-6 portfolio-item">
+        <div class="col-md-4 col-sm-6 portfolio-item" data-proj-id="${proj.id}">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal">
             <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
@@ -30,4 +30,18 @@ function renderProjs() {
     `});
 
     $('.proj-list').html(strHtml);
+}
+
+function onProjClick() {
+
+    const projId = $(this).data('proj-id');
+    const proj = getProjById(projId);
+    const $elProjDetails = $('.proj-details');
+
+    $elProjDetails.find('h2').text(proj.name);
+    $elProjDetails.find('.item-intro').text(proj.title);
+    $elProjDetails.find('img').attr('src', `img/portfolio/${proj.id}.png`);
+    $elProjDetails.find('.proj-desc').text(proj.desc);
+    $elProjDetails.find('.publish-date').text(proj.publishedAt);
+
 }
